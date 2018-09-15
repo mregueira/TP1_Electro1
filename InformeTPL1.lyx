@@ -109,7 +109,18 @@ Introducción
 \begin_layout Standard
 En el presente trabajo práctico de laboratorio, se busca comparar mediante
  circuitos de prueba el comportamiento de dos componentes alineales comúnmente
- utilizados: diodo y transistor bipolar.
+ utilizados: diodo y transistor bipolar de juntura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(BTJ)$
+\end_layout
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -140,9 +151,14 @@ $NPN$
 
 \end_inset
 
-, para analizar su respuesta en corriente alterna.
+, para analizar su respuesta en frecuencia.
  Y por último, se retoma el caso del diodo rectificador, pero analizando
- su respuesta para corriente alterna a distintas frecuencias.
+ ahora su respuesta para corriente alterna a distintas frecuencias.
+\end_layout
+
+\begin_layout Standard
+En cada caso se realiza la comparación de lo obtenido mediante simulaciones
+ en LTSpice y mediciones, planteando adicionalmente el análisis teórico.
 \end_layout
 
 \begin_layout Standard
@@ -160,6 +176,258 @@ Curvas Características
 Diodo Rectificador
 \end_layout
 
+\begin_layout Subsubsection
+Descripción teórica
+\end_layout
+
+\begin_layout Standard
+Antes de realizar el análisis circuital, se describirá en forma breve al
+ dispositivo a tratar:
+\end_layout
+
+\begin_layout Standard
+El diodo es un dispositivo semiconductor conformado por una juntura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P-N$
+\end_layout
+
+\end_inset
+
+, donde 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ son materiales extrínsecos.
+ Es decir, partiendo de una material intrínseco como el silicio 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(Si)$
+\end_layout
+
+\end_inset
+
+ (que es de valencia 4), el material 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ se forma al contaminarlo con impurezas del grupo 5 de la tabla periódica
+ (llamadas impurezas donoras, dado que el quinto electrón adicional queda
+ débilmente unido y requiere muy poca enérgia para ser arrancado), y el
+ material 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ se forma al contaminarlo con impurezas del grupo 3 (llamadas impurezas
+ aceptoras, dado que al tener un electrón menos se forman huecos de carga
+ positiva, que pueden ocuparse al aceptar otros electrones).
+\end_layout
+
+\begin_layout Standard
+El material intrínseco en si mismo es neutro, por lo que al contaminarlo
+ puede pensarse que adquirió cierta polaridad.
+ Pero como la proporción de impurezas suele ser del orden de 1 parte cada
+ 10 millones, se sigue considerando que tanto el material 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ como el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ se mantienen neutros.
+\end_layout
+
+\begin_layout Standard
+Al unir los dos materiales, en la juntura se forma una zona de deplexión,
+ al pasar electrones libres cercanos a dicha juntura desde el lado 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ al lado 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+, y los huecos del lado 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ al lado 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+.
+ Debido al campo eléctrico generado, se produce una diferencia de potencial
+ que va en aumento hasta que los electrones libres del material 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ y los huecos del material 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ más alejados de la zona de deplexión ya no pueden pasar de un lado al otro
+ de la juntura.
+ El potencial resultante en esta condición de equilibrio se denomina potencial
+ de contacto.
+\end_layout
+
+\begin_layout Standard
+Al conectar una fuente de tensión con el positivo en el terminal 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+, se polariza al diodo en sentido inverso, por lo que la zona de deplexión
+ se ensancha y no conduce.
+ Hay una pequeña corriente que surge debido a que algunos electrones de
+ valencia y huecos logran pasar de un lado al otro, y se denomina corriente
+ de saturación inversa 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(I_S)$
+\end_layout
+
+\end_inset
+
+, del orden de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$10^{-12}A$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Si se conecta la fuente de tensión con el positivo en el terminal 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+, se polariza al diodo en sentido directo, haciéndose a la zona de deplexión
+ más angosta hasta superar el potencial de contacto, donde el diodo comienza
+ a conducir siguiendo un comportamiento exponencial, como se verá a continuación.
+\end_layout
+
+\begin_layout Subsubsection
+Análisis en corriente continua
+\end_layout
+
 \begin_layout Standard
 En este caso, se analiza el comportamiento del diodo rectificador 
 \begin_inset ERT
@@ -174,7 +442,7 @@ $1N4007$
 
  en corriente continua.
  Para la realización del modelo teórico y posterior mediciones, se implementó
- el circuito de prueba que se muestra a continuación.
+ el circuito de prueba que se muestra en la siguiente figura, en un protoboard.
 \end_layout
 
 \begin_layout Standard
@@ -184,7 +452,8 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-#DIBUJO DEL COSO
+\align center
+###DIBUJO DEL COSO###
 \end_layout
 
 \begin_layout Plain Layout
@@ -209,13 +478,207 @@ Circuito con diodo y resistencia limitadora
 \end_layout
 
 \begin_layout Standard
+Para el análisis teórico, se parte de la ecuación general para la corriente
+ en un diodo:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$I_D=I_S(e^{
+\backslash
+frac{V_D}{V_T}}-1)$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ es la tensión entre los terminales del diodo y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_T$
+\end_layout
+
+\end_inset
+
+ es la tensión térmica dependiente de la temperatura.
+ Para las condiciones de trabajo se consideró que la temperatura ambiente
+ fue de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$27^{
+\backslash
+circ}C$
+\end_layout
+
+\end_inset
+
+ (ó 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$300^{
+\backslash
+circ}K$
+\end_layout
+
+\end_inset
+
+).
+ Como 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_S$
+\end_layout
+
+\end_inset
+
+ es del orden de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$10^{-12}A$
+\end_layout
+
+\end_inset
+
+, para las condiciones prácticas en las que se trabaja se considerará que
+ en sentido inverso el diodo no conduce, y actúa entonces como un circuito
+ abierto.
+ Se despeja 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ de la ecuación anterior:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_D=V_{T}Ln(
+\backslash
+frac{I_D}{I_S}+1)$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para polarización directa, recorriendo la malla del circuito queda:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_{i}-I_{D}R-V_{D}=0$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+V_{i}-I_{D}R-V_{T}Ln(
+\backslash
+frac{I_D}{I_S}+1)=0
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde la expresión anterior es una ecuación trascendente, por lo que para
+ la comparación se tomará lo obtenido de la simulación y se superpondrá
+ con la curva resultante de las mediciones, tomando sólo algunos puntos
+ para verificar luego en la ecuación 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(1)$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 Se dispone realizar un barrido de 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$V_{CC}$
+$V_{i}$
 \end_layout
 
 \end_inset
@@ -260,14 +723,14 @@ status open
 
 \begin_layout Plain Layout
 
-$V_{CC}$
+$V_{i}$
 \end_layout
 
 \end_inset
 
 , se calcula la resistencia a utilizar, considerando que el diodo ya se
- encuentra disparado para esa condición, y de la hoja de datos se toma como
- tensión de disparo 
+ encuentra conduciendo para esa condición, al tomar de la hoja de datos
+ como tensión de disparo máxima 
 \begin_inset ERT
 status open
 
@@ -290,7 +753,7 @@ status open
 
 $$R=
 \backslash
-frac{V_{CC}-V_D}{I_{MAX}}=
+frac{V_{i}-V_D}{I_{MAX}}=
 \backslash
 frac{2V-0.8V}{1mA}=1200
 \backslash
@@ -303,7 +766,8 @@ Omega$$
 \end_layout
 
 \begin_layout Standard
-El cual coincide con un valor normalizado, por lo que se define 
+El cual coincide con un valor comercial normalizado, por lo que se define
+ a 
 \begin_inset ERT
 status open
 
@@ -318,7 +782,516 @@ $R$
 \end_layout
 
 \begin_layout Standard
-Para el análisis teórico, recorriendo la malla del circuito queda:
+Se comparan entonces,en la siguiente gráfica, las curvas obtenidas de la
+ simuación con las mediciones\SpecialChar endofsentence
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1erParte/a.Diodo Rectificador/Graficos/Curvas1N4007.pdf
+	display false
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Curvas características resultantes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De las curvas obtenidas, se observa que en la simulada el diodo comienza
+ a conducir para una tensión menor que en el diodo real, por lo que a medida
+ que se sigue aumentando la tensión de entrada y la corriente aumente, resulta
+ lógico que ambas curvas se separen para tensiones de diodo cada vez mayores.
+ Esta diferencia de tensiones se da debido a que el diodo real no se corresponde
+ exactamente con el modelo simulado, por las variaciones en la temperatura
+ de trabajo (la cual cambiaría aún más si se lo llevara a las condiciones
+ de límite de corriente de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1A$
+\end_layout
+
+\end_inset
+
+) y porque, constructivamente, la concentración de impurezas de los materiales
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ resultante influye en el valor del potencial de contacto.
+ Es por esto último que la hoja de datos especifica, en general, un valor
+ típico y uno máximo para la tensión de disparo.
+\end_layout
+
+\begin_layout Standard
+Por otro lado, se observa que en una sección donde el diodo ya conduce fuertemen
+te, las pendientes de las rectas tangentes a las curvas son similares, por
+ lo que el comportamiento del diodo simulado y el real resulta aproximadamente
+ idéntico para las condiciones de trabajo dadas.
+ Para verificar esto, considerando un intervalo pequeño para 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ e 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D$
+\end_layout
+
+\end_inset
+
+, se toma un par de valores de ambos casos:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D1$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D2$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D1$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D2$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simulado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.534V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.539V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.638mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.717mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.532V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.541V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.3mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.4mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valores de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ e 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D$
+\end_layout
+
+\end_inset
+
+ considerados para el cálculo de la pendiente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Calculando las pendientes en dichos intervalos, resulta en forma aproximada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$Medido 
+\backslash
+Rightarrow 
+\backslash
+frac{
+\backslash
+Delta ID}{
+\backslash
+Delta VD}=
+\backslash
+frac{I_D2-I_D1}{V_D2-V_D1}=0.011[
+\backslash
+frac{1}{
+\backslash
+Omega}]$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$Simulado 
+\backslash
+Rightarrow 
+\backslash
+frac{
+\backslash
+Delta ID}{
+\backslash
+Delta VD}=
+\backslash
+frac{I_D2-I_D1}{V_D2-V_D1}=0.015[
+\backslash
+frac{1}{
+\backslash
+Omega}]$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Verificando entonces que los valores se encuentran dentro del mismo orden.
 \end_layout
 
 \begin_layout Subsection
@@ -330,7 +1303,7 @@ Transistor BJT
 \end_layout
 
 \begin_layout Section
-Amplificador emisor común
+Amplificador con BJT
 \end_layout
 
 \begin_layout Section
