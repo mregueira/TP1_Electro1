@@ -96,7 +96,16 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
 \end_inset
 
 
@@ -159,7 +168,16 @@ $NPN$
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
 \end_inset
 
 
@@ -2423,7 +2441,7 @@ status open
 
 \begin_layout Plain Layout
 
-V_{BB}
+$V_{BB}$
 \end_layout
 
 \end_inset
@@ -2452,17 +2470,26 @@ beta$
 
 \end_inset
 
-, que idealmente es constante y mucho mayor que 1, de tal forma que 
+ (que en general se lo nombra como 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$I_C=I_B 
+$HFE$
+\end_layout
+
+\end_inset
+
+), que idealmente es constante y mucho mayor que 1, de tal forma que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C=
 \backslash
-cdot 
-\backslash
-beta$
+beta I_B$
 \end_layout
 
 \end_inset
@@ -2520,7 +2547,244 @@ Análisis en corriente continua
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+El transistor utilizado es un 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$BC547C$
+\end_layout
+
+\end_inset
+
+, el cual es de tipo 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$NPN$
+\end_layout
+
+\end_inset
+
+.
+ Para llevar a cabo las mediciones a comparar con simulación, se implementó
+ el siguiente circuito en protoboard.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1erParte/c.Transistor Bipolar/Graficos/CircuitoTBJ.png
+	display false
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito de polarización simple sin resistencia de emisor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para el análisis, se considerara que la sección de circuito que pasa por
+ la juntura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$B-E$
+\end_layout
+
+\end_inset
+
+ constituye la malla de entrada, y la sección que une al colector y al emisor
+ se denomina malla de salida.
+ De acuerdo a la hoja de datos la máxima corriente 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C$
+\end_layout
+
+\end_inset
+
+ que se permite es de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$100mA$
+\end_layout
+
+\end_inset
+
+, por lo que se decidió regular la polarización desde la malla de entrada
+ con la fuente 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{BB}$
+\end_layout
+
+\end_inset
+
+ de forma tal de obtener una 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C=10mA$
+\end_layout
+
+\end_inset
+
+ en el punto de trabajo (tal que esté alejada del valor máximo) y así obtener
+ una curva 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C(V_{CE})$
+\end_layout
+
+\end_inset
+
+.
+ A partir de allí se elegirán otros tres valores adicionales de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{BB}$
+\end_layout
+
+\end_inset
+
+ para conseguir corrientes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C$
+\end_layout
+
+\end_inset
+
+ menores y poder graficar otras tres curvas más.
+\end_layout
+
+\begin_layout Standard
+Para el transistor en cuestión, el valor típico de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$HFE=520$
+\end_layout
+
+\end_inset
+
+.
+ Tomando una 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{BB}=1.4V$
+\end_layout
+
+\end_inset
+
+, y considerando la juntura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$B-E$
+\end_layout
+
+\end_inset
+
+ en conducción, se toma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{BEON}=0.7V$
+\end_layout
+
+\end_inset
+
+, por lo que recorriendo la malla de entrada resulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Formula$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
 \end_inset
 
 
@@ -2531,7 +2795,16 @@ Amplificador con BJT
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage newpage
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
 \end_inset
 
 
