@@ -154,10 +154,7 @@ $NPN$
 , para analizar su respuesta en frecuencia.
  Y por último, se retoma el caso del diodo rectificador, pero analizando
  ahora su respuesta para corriente alterna a distintas frecuencias.
-\end_layout
-
-\begin_layout Standard
-En cada caso se realiza la comparación de lo obtenido mediante simulaciones
+ En cada caso se realiza la comparación de lo obtenido mediante simulaciones
  en LTSpice y mediciones, planteando adicionalmente el análisis teórico.
 \end_layout
 
@@ -259,6 +256,29 @@ $P$
  se forma al contaminarlo con impurezas del grupo 3 (llamadas impurezas
  aceptoras, dado que al tener un electrón menos se forman huecos de carga
  positiva, que pueden ocuparse al aceptar otros electrones).
+ Teniendo en cuenta lo anterior, en el material 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ los portadores mayoritarios son los electrones libres, y en el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ son las lagunas o huecos libres.
 \end_layout
 
 \begin_layout Standard
@@ -380,9 +400,9 @@ $N$
 
 , se polariza al diodo en sentido inverso, por lo que la zona de deplexión
  se ensancha y no conduce.
- Hay una pequeña corriente que surge debido a que algunos electrones de
- valencia y huecos logran pasar de un lado al otro, y se denomina corriente
- de saturación inversa 
+ Hay una pequeña corriente que surge debido a que algunos portadores minoritario
+s pasar de un lado al otro, y se denomina corriente de saturación inversa
+ 
 \begin_inset ERT
 status open
 
@@ -393,7 +413,7 @@ $(I_S)$
 
 \end_inset
 
-, del orden de 
+, que es del orden de 
 \begin_inset ERT
 status open
 
@@ -405,6 +425,42 @@ $10^{-12}A$
 \end_inset
 
 .
+ Si se excede cierto valor de tensión aplicada en inversa, denominada tensión
+ de ruptura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{BR}$
+\end_layout
+
+\end_inset
+
+, el diodo comienza a conducir fuertemente, debido al denominado efecto
+ avalancha (ó zener dependiendo del valor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{BR}$
+\end_layout
+
+\end_inset
+
+ del diodo en cuestión).
+ En el caso de un diodo rectificador, el efecto producido es de avalancha,
+ donde los portadores minoritarios que cruzan la zona de deplexión debido
+ al campo eléctrico consiguen suficiente energía cinética para romper enlaces
+ covalentes en los átomos con los que colisionan.
+ Los portadores que son liberados por efecto de la colisión pueden tener
+ suficiente energía para liberar otros portadores en otra nueva colisión,
+ proceso que se replica en forma de avalancha (de ahí el nombre), pudiendo
+ soportar cualquier corriente en inversa para una variación despreciable
+ en la tensión.
+ Este proceso no resulta destructivo para el diodo siempre que se controle
+ la potencia disipada con el circuito externo al que esté conectado.
 \end_layout
 
 \begin_layout Standard
@@ -421,65 +477,7 @@ $P$
 
 , se polariza al diodo en sentido directo, haciéndose a la zona de deplexión
  más angosta hasta superar el potencial de contacto, donde el diodo comienza
- a conducir siguiendo un comportamiento exponencial, como se verá a continuación.
-\end_layout
-
-\begin_layout Subsubsection
-Análisis en corriente continua
-\end_layout
-
-\begin_layout Standard
-En este caso, se analiza el comportamiento del diodo rectificador 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$1N4007$
-\end_layout
-
-\end_inset
-
- en corriente continua.
- Para la realización del modelo teórico y posterior mediciones, se implementó
- el circuito de prueba que se muestra en la siguiente figura, en un protoboard.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-###DIBUJO DEL COSO###
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Circuito con diodo y resistencia limitadora
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Para el análisis teórico, se parte de la ecuación general para la corriente
- en un diodo:
+ a conducir siguiendo un comportamiento exponencial:
 \end_layout
 
 \begin_layout Standard
@@ -505,23 +503,98 @@ status open
 
 \begin_layout Plain Layout
 
-$V_D$
-\end_layout
-
-\end_inset
-
- es la tensión entre los terminales del diodo y 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
 $V_T$
 \end_layout
 
 \end_inset
 
- es la tensión térmica dependiente de la temperatura.
+ se la denomina tensión térmica, que depende linealmente con la temperatura.
+\end_layout
+
+\begin_layout Subsubsection
+Análisis en corriente continua
+\end_layout
+
+\begin_layout Standard
+En este caso, se analiza el comportamiento del diodo rectificador 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1N4007$
+\end_layout
+
+\end_inset
+
+.
+ Para la realización del modelo teórico y posterior mediciones, se implementó
+ el circuito de prueba que se muestra en la siguiente figura, en un protoboard.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1erParte/a.Diodo Rectificador/Graficos/CircuitoDRect.png
+	display false
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito con diodo y resistencia limitadora
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para el análisis a realizar, se denotará como 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ a la tensión entre los terminales del diodo, e 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D$
+\end_layout
+
+\end_inset
+
+ la respectiva corriente.
  Para las condiciones de trabajo se consideró que la temperatura ambiente
  fue de 
 \begin_inset ERT
@@ -572,103 +645,13 @@ $10^{-12}A$
 
 \end_inset
 
-, para las condiciones prácticas en las que se trabaja se considerará que
- en sentido inverso el diodo no conduce, y actúa entonces como un circuito
- abierto.
- Se despeja 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$V_D$
-\end_layout
-
-\end_inset
-
- de la ecuación anterior:
+, se considerará que en sentido inverso el diodo no conduce, y actúa entonces
+ como un circuito abierto.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$$V_D=V_{T}Ln(
-\backslash
-frac{I_D}{I_S}+1)$$
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Para polarización directa, recorriendo la malla del circuito queda:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$$V_{i}-I_{D}R-V_{D}=0$$
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{equation}
-\end_layout
-
-\begin_layout Plain Layout
-
-V_{i}-I_{D}R-V_{T}Ln(
-\backslash
-frac{I_D}{I_S}+1)=0
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{equation}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Donde la expresión anterior es una ecuación trascendente, por lo que para
- la comparación se tomará lo obtenido de la simulación y se superpondrá
- con la curva resultante de las mediciones, tomando sólo algunos puntos
- para verificar luego en la ecuación 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-$(1)$
-\end_layout
-
-\end_inset
-
-.
+Para la comparación se tomará lo obtenido de la simulación y se superpondrá
+ con la curva resultante de las mediciones.
 \end_layout
 
 \begin_layout Standard
@@ -742,7 +725,19 @@ $0.8V$
 \end_inset
 
 .
- Entonces se tiene que:
+ Entonces, se linealiza el comportamiento del circuito para dicha condición,
+ pudiendo calcular el valor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R$
+\end_layout
+
+\end_inset
+
+ siguiendo la ley de Ohm:
 \end_layout
 
 \begin_layout Standard
@@ -779,11 +774,73 @@ $R$
 \end_inset
 
  con dicho valor.
+ Para efectuar las mediciones correspondientes, a partir de medir 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{i}$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ para cada caso, y mediante la ley de Ohm aplicada sobre la resistencia
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R$
+\end_layout
+
+\end_inset
+
+ se calcula la corriente en todo momento como:
 \end_layout
 
 \begin_layout Standard
-Se comparan entonces,en la siguiente gráfica, las curvas obtenidas de la
- simuación con las mediciones\SpecialChar endofsentence
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$I_D=
+\backslash
+frac{V_D-V_i}{R}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se comparan entonces, en la siguiente gráfica, las curvas obtenidas de la
+ simuación con las mediciones, de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D(V_D)$
+\end_layout
+
+\end_inset
+
+\SpecialChar endofsentence
 
 \end_layout
 
@@ -809,7 +866,18 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Curvas características resultantes
+Curvas características resultantes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D(V_D)$
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -832,20 +900,21 @@ De las curvas obtenidas, se observa que en la simulada el diodo comienza
  que se sigue aumentando la tensión de entrada y la corriente aumente, resulta
  lógico que ambas curvas se separen para tensiones de diodo cada vez mayores.
  Esta diferencia de tensiones se da debido a que el diodo real no se corresponde
- exactamente con el modelo simulado, por las variaciones en la temperatura
- de trabajo (la cual cambiaría aún más si se lo llevara a las condiciones
- de límite de corriente de 
+ exactamente con el modelo simulado.
+ Por un lado, debido a las variaciones en la temperatura de trabajo, que
+ modifican 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-$1A$
+$V_T$
 \end_layout
 
 \end_inset
 
-) y porque, constructivamente, la concentración de impurezas de los materiales
+ y consecuentemente la ecuación de corriente en el diodo; por otra parte
+ porque, constructivamente, la concentración de impurezas de los materiales
  
 \begin_inset ERT
 status open
@@ -869,7 +938,7 @@ $P$
 \end_inset
 
  resultante influye en el valor del potencial de contacto.
- Es por esto último que la hoja de datos especifica, en general, un valor
+ Por estas cuestiones, en la hoja de datos especifica, en general, un valor
  típico y uno máximo para la tensión de disparo.
 \end_layout
 
@@ -900,7 +969,30 @@ $I_D$
 
 \end_inset
 
-, se toma un par de valores de ambos casos:
+, se toma un par de valores de ambos casos correspondientes a las mismas
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i1$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i2$
+\end_layout
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
@@ -1291,19 +1383,1158 @@ Omega}]$$
 \end_layout
 
 \begin_layout Standard
-Viendo entonces que los valores se encuentran dentro del mismo orden.
+Verificando entonces que los valores se encuentran dentro del mismo orden.
 \end_layout
 
 \begin_layout Subsection
 Diodo Zener
 \end_layout
 
+\begin_layout Subsubsection
+Descripción teórica
+\end_layout
+
+\begin_layout Standard
+En este caso, el dispositivo a tratar es un diodo zener.
+ Su principio de funcionamiento es similar al diodo rectificador en polarización
+ directa, pero resulta un poco diferente en la zona de polarización inversa,
+ que se quiere evitar para un diodo rectificador común pero es la zona de
+ trabajo buscada en un circuito con un diodo zener.
+\end_layout
+
+\begin_layout Standard
+Brevemente, la ruptura zener (a diferencia de la ruptura de avalancha) se
+ da cuando el campo eléctrico de la zona de deplexión aumenta al punto donde
+ puede romper enlaces covalentes y producir pares electrón-hueco.
+ Los electrones generados por este proceso son llevados por el campo eléctrico
+ al lado 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+, y los huecos al lado 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+.
+ Por lo tanto ambos portadores forman una corriente entre los terminales
+ de la unión.
+ Una vez que se inicia el efecto zener, se genera una gran cantidad de portadore
+s para pequeñas variaciones respecto de la tensión de ruptura de zener 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(V_Z)$
+\end_layout
+
+\end_inset
+
+, siendo la corriente que circula determinada ahora por el circuito externo.
+ Los diodos fabricados para operar específicamente en dicha zona permite
+ utilizarlos como reguladores de voltaje, una aplicación muy frecuente.
+\end_layout
+
+\begin_layout Subsubsection
+Análisis en corriente continua
+\end_layout
+
+\begin_layout Standard
+En este caso, el diodo zener utilizado es el 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1N4736A$
+\end_layout
+
+\end_inset
+
+, cuyo voltaje de regulación inverso típico es de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$6.8V$
+\end_layout
+
+\end_inset
+
+.
+ Para llevar a cabo las mediciones y posterior comparación con simulación,
+ se implementó el mismo circuito utilizado para el diodo rectificador, pero
+ utilizando el diodo zener, también en un protoboard.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1erParte/b.Diodo Zener/Graficos/CircuitoDZener.png
+	display false
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito con diodo y resistencia limitadora
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Desde el punto de vista teórico, se comportará como un diodo común para
+ polarización directa, cuyo potencial de contacto se halla aproximadamente
+ en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$0.7V$
+\end_layout
+
+\end_inset
+
+.
+ Para polarización inversa, se desprecia nuevamente la corriente 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_S$
+\end_layout
+
+\end_inset
+
+, por lo que para tensiones menores a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_Z$
+\end_layout
+
+\end_inset
+
+ no conduce y se comporta como un circuito abierto.
+ Cuando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i$
+\end_layout
+
+\end_inset
+
+ se acerca al valor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_Z$
+\end_layout
+
+\end_inset
+
+, comienza a producirse el efecto zener, y predomina cuando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i$
+\end_layout
+
+\end_inset
+
+ supera dicho valor.
+ Por ello, la tensión en el diodo se mantendrá aproximadamente en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_Z$
+\end_layout
+
+\end_inset
+
+ y, al ser ahora constantes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ la corriente se regula en forma aproximadamente lineal con la resistencia,
+ por ley de Ohm.
+\end_layout
+
+\begin_layout Standard
+En la siguiente gráfica se comparan las curvas de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D(V_D)$
+\end_layout
+
+\end_inset
+
+ obtenidas mediante simulación y mediciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1erParte/b.Diodo Zener/Graficos/Curvas1N4736A_Directa.pdf
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Curvas características resultantes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D(V_D)$
+\end_layout
+
+\end_inset
+
+ - Polarización directa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de las curvas obtenidas en el intervalo de polarización directa,
+ se observa un comportamiento similar al obtenido en el caso del diodo rectifica
+dor, donde en el caso simulado el diodo comienza a conducir antes que en
+ el caso medido.
+ Esto conlleva a que al continuar aumentando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i$
+\end_layout
+
+\end_inset
+
+ hasta superar el umbral de conducción, ambas curvas se separan, pero habiendo
+ ya superado dicho umbral las curvas mantienen pendientes similares.
+\end_layout
+
+\begin_layout Standard
+Para verificar nuevamente que en directa resultan pendientes de crecimiento
+ similares, considerando un intervalo pequeño para 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ e 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D$
+\end_layout
+
+\end_inset
+
+, se toma un par de valores de ambos casos correspondientes a las mismas
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i1$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i2$
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D1$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D2$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D1$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D2$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Simulado
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.72V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.731V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+2.65mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+3.567mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.76V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.768V
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+2.7mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+3.5mA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Valores de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_D$
+\end_layout
+
+\end_inset
+
+ e 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D$
+\end_layout
+
+\end_inset
+
+ considerados para el cálculo de la pendiente
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se calculan entonces las pendientes, en forma aproximada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$Medido 
+\backslash
+Rightarrow 
+\backslash
+frac{
+\backslash
+Delta ID}{
+\backslash
+Delta VD}=
+\backslash
+frac{I_D2-I_D1}{V_D2-V_D1}=0.100[
+\backslash
+frac{1}{
+\backslash
+Omega}]$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$Simulado 
+\backslash
+Rightarrow 
+\backslash
+frac{
+\backslash
+Delta ID}{
+\backslash
+Delta VD}=
+\backslash
+frac{I_D2-I_D1}{V_D2-V_D1}=0.083[
+\backslash
+frac{1}{
+\backslash
+Omega}]$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Encontrándose dentro del mismo orden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 1erParte/b.Diodo Zener/Graficos/Curvas1N4736A_Inversa.pdf
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Curvas características resultantes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_D(V_D)$
+\end_layout
+
+\end_inset
+
+ - Polarización inversa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pasando a la zona de polarización inversa, al superar la tensión de ruptura
+ de zener 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_Z$
+\end_layout
+
+\end_inset
+
+ el diodo comienza a conducir fuertemente, como predice dicho efecto en
+ la teoría.
+ A partir de dicho valor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i$
+\end_layout
+
+\end_inset
+
+, al continuar aumentándola la tensión sobre el diodo se mantiene casi constante
+, por lo que las variación de corriente pasa a ser aproximadamente lineal
+ debido a la resistencia limitadora.
+ Esta precisión en la zona de ruptura es la que lleva a utilizarlo frecuentement
+e como regulador de voltaje.
+ En este caso, se utilizó una escala ampliada desde los 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$6.5V$
+\end_layout
+
+\end_inset
+
+ en inversa, de forma tal de poder observar que ambas curvas (simulada y
+ real) están separadas, pero la diferencia es mínima, aproximadamente 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$0.05V$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Subsection
 Transistor BJT
 \end_layout
 
+\begin_layout Subsubsection
+Descripción teórica
+\end_layout
+
+\begin_layout Standard
+Antes de efectuar el análisis circuital sobre el dispositivo, se realiza
+ una breve descripción del mismo:
+\end_layout
+
+\begin_layout Standard
+El transistor bipolar es un dispositivo formado por dos junturas 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P-N$
+\end_layout
+
+\end_inset
+
+ conectadas en serie, y la corriente es conducida tanto por electrones libres
+ como por huecos (por ello la característica de bipolar).
+ Al conectarse dos junturas en serie, surgen dos configuraciones posibles:
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N-P-N$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P-N-P$
+\end_layout
+
+\end_inset
+
+.
+ Para cada región se tiene un terminal del transistor, que se denominan:
+ base (B) a la región centra, y colector (C) y emisor (E) a los dos extremos.
+ Se considera como emisor al extremo 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$N$
+\end_layout
+
+\end_inset
+
+ (si es 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$NPN$
+\end_layout
+
+\end_inset
+
+) o 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$P$
+\end_layout
+
+\end_inset
+
+ (si es 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$PNP$
+\end_layout
+
+\end_inset
+
+) que está más contaminado en exceso por impurezas (esto último da la pauta
+ de que el transistor bipolar no es exactamente simétrico).
+ Se tomará el caso del transistor 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$NPN$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Según se polaricen las junturas, se dará un modo de operación determinado.
+ En este caso se estudiará al transistor cuando la juntura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$C-B$
+\end_layout
+
+\end_inset
+
+ se polariza en inversa y la juntura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$B-E$
+\end_layout
+
+\end_inset
+
+ en directa; dicho modo se denomina modo activo directo, que es cuando el
+ transistor trabaja como modulador de corriente: según la corriente de base
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_B$
+\end_layout
+
+\end_inset
+
+ con la que se polariza a la juntura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$B-E$
+\end_layout
+
+\end_inset
+
+ (en este caso será mediante una fuente de alimentación que se denominará
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+V_{BB}
+\end_layout
+
+\end_inset
+
+), queda determinada la corriente de colector 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C$
+\end_layout
+
+\end_inset
+
+ mediante un factor 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+beta$
+\end_layout
+
+\end_inset
+
+, que idealmente es constante y mucho mayor que 1, de tal forma que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C=I_B 
+\backslash
+cdot 
+\backslash
+beta$
+\end_layout
+
+\end_inset
+
+.
+ Considerando a la tensión entre 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$C-E$
+\end_layout
+
+\end_inset
+
+ como 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{CE}$
+\end_layout
+
+\end_inset
+
+, en el análisis a efectuar se busca comparar para algunos valores de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_B$
+\end_layout
+
+\end_inset
+
+, las curvas de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C(V_{CE})$
+\end_layout
+
+\end_inset
+
+ resultantes en forma simulada y a través de mediciones
+\end_layout
+
+\begin_layout Subsubsection
+Análisis en corriente continua
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Amplificador con BJT
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
