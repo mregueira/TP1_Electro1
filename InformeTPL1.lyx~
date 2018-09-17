@@ -3125,7 +3125,14 @@ status open
 
 \begin_layout Plain Layout
 \align center
-###CURVAS ORIGINALES###
+\begin_inset Graphics
+	filename 1erParte/c.Transistor Bipolar/Graficos/CurvasTBJ.pdf
+	display false
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -3660,7 +3667,14 @@ status open
 
 \begin_layout Plain Layout
 \align center
-###VA LA CURVA CON LOS VALORES NUEVOS###
+\begin_inset Graphics
+	filename 1erParte/c.Transistor Bipolar/Graficos/CurvasTBJ_Corregido.pdf
+	display false
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -4037,7 +4051,7 @@ status open
 
 $$V_{TH}=
 \backslash
-frac{V_{CC}R_2}{R_1+R_2}=$$
+frac{V_{CC}R_2}{R_1+R_2}=0.909V$$
 \end_layout
 
 \end_inset
@@ -4053,7 +4067,285 @@ status open
 
 $$R_{TH}=R_1//R2=
 \backslash
-frac{R_1R_2}{R_1+R_2}=$$
+frac{R_1R_2}{R_1+R_2}=7.578K
+\backslash
+Omega$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De forma tal de poder tratar la malla de entrada como en el circuito compensado
+ de la sección 
+\begin_inset Quotes fld
+\end_inset
+
+2.3.3
+\begin_inset Quotes frd
+\end_inset
+
+.
+ Recorriendo la malla de entrada:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_{TH}-I_B(R_{TH})-V_{BEON}-IB(1+HFE)R_E=0$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$I_B=
+\backslash
+frac{V_{TH}-V_{BEON}}{R_E(1+HFE)+R_{TH}}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sabiendo que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_C=I_BHFE$
+\end_layout
+
+\end_inset
+
+, resulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$I_{CQ}=
+\backslash
+frac{V_{TH}-V_{BEON}}{R_E(
+\backslash
+frac{1}{HFE} +1)+
+\backslash
+frac{R_{TH}}{HFE}}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$I_{CQ}=272.84 
+\backslash
+mu A$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Recorriendo la malla de salida:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_{CC}-I_{CQ}(RC)-V_{CEQ}-I_{CQ}(1+
+\backslash
+frac{1}{HFE})R_E=0$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_{CEQ}=V_{CC}-I_{CQ}(R_C+R_E+
+\backslash
+frac{R_E}{HFE})$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_{CEQ}=7.3V>0.2V$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+Por lo tanto, el circuito opera en modo activo directo.
+\end_layout
+
+\begin_layout Subsection
+Modelo incremental
+\end_layout
+
+\begin_layout Standard
+Para el análisis en corriente alterna, el modelo que se utilizará es el
+ de parámetros híbridos, por comodidad.
+ Se estiman entonces los cuatro parámteros correspondientes al modelo en
+ cuestión (a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$25^{
+\backslash
+circ}C$
+\end_layout
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$hfe=
+\backslash
+beta=520$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$hie 
+\backslash
+approx (
+\backslash
+beta +1)
+\backslash
+frac{V_T}{I_{CQ}} = 47.74K
+\backslash
+Omega$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Considerando una tensión de early 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_A 
+\backslash
+approx 50V$
+\end_layout
+
+\end_inset
+
+, se estima: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$hoe = 
+\backslash
+frac{1}{r_{ce}} 
+\backslash
+approx 
+\backslash
+frac{I_{CQ}}{V_A} = 5.56[
+\backslash
+frac{
+\backslash
+mu A}{V}] 
+\backslash
+Rightarrow 
+\backslash
+frac{1}{hoe} = roe = 180K
+\backslash
+Omega$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$hre 
+\backslash
+approx 0$$
 \end_layout
 
 \end_inset
@@ -4062,15 +4354,681 @@ frac{R_1R_2}{R_1+R_2}=$$
 \end_layout
 
 \begin_layout Subsection
-Modelo incremental
+Circuito incremental
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
+Habiendo definido los parámetros del modelo a utilizar, se dibuja el circuito
+ equivalente en alterna, considerando los capacitores como un cortocircuito.
+ Posteriormente se verá en que rango de frecuencias resulta válida esta
+ suposición.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2daParte/Graficos/Incremental.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
 Circuito incremental
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Siendo 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_{TH}=R_1//R_2=7.58K
+\backslash
+Omega$
+\end_layout
+
+\end_inset
+
+.
+ Al tratar los capacitores como cortocircuitos, el terminal de emisor queda
+ conectado a la masa común, lo que le da el nombre de amplificador emisor
+ común.
+\end_layout
+
+\begin_layout Standard
+Llamando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i=V_s
+\backslash
+frac{R_{TH}//hie}{R_g+(R_{TH}//hie)}$
+\end_layout
+
+\end_inset
+
+ a la tensión sobre 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$hie$
+\end_layout
+
+\end_inset
+
+, se calcula la ganancia del sistema 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A_{vs}$
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$A_{vs}=
+\backslash
+frac{V_o}{V_s}=
+\backslash
+frac{-i_{b} 
+\backslash
+cdot hfe(roe//R_C//R_L)(R_{TH}//hie)}{V_i(R_g+(R_{TH}//hie))}=
+\backslash
+frac{-i_{b} 
+\backslash
+cdot hfe(roe//R_C//R_L)(R_{TH}//hie)}{i_{b} 
+\backslash
+cdot hie(R_g+(R_{TH}//hie))}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$A_{vs}=
+\backslash
+frac{-hfe(roe//R_C//R_L)(R_{TH}//hie)}{hie(R_g+(R_{TH}//hie))}=-65$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El signo negativo indica que invierte la señal de entrada a la salida.
+ Si se pasa el valor a decibeles queda:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$A_{vs}[dB]=20log(|A_{vs}|)=36.3[dB]$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para la impedancia de entrada del amplificador, sin considerar 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_g$
+\end_layout
+
+\end_inset
+
+, se calcula como:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_{ia}=hie//R_{TH}=6.53K
+\backslash
+Omega$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_g 
+\backslash
+ll R_{ia}$
+\end_layout
+
+\end_inset
+
+, entonces resulta 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_{is} 
+\backslash
+approx R_{ia}$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Y la impedancia de salida, pasivando la entrada y considerando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_L$
+\end_layout
+
+\end_inset
+
+, resulta:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$R_{os}=roe//R_C//R_L=6.02K
+\backslash
+Omega$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de los dos resultados anteriores, se observa que las impedancias
+ de entrada y salida son parecidas en su valor.
+ Esta característica de un emisor común permite conectarlos en cascada,
+ dado que al ser dichas impedancias parecidas, la adaptación es cercana
+ a la ideal y la transferencia de potencia es prácticamente la máxima.
 \end_layout
 
 \begin_layout Subsection
 Respuesta en frecuencia
+\end_layout
+
+\begin_layout Standard
+En esta sección se busca verificar, mediante la respuesta en frecuencia,
+ el rango donde resulta válido el análisis incremental, y comparar con los
+ resultados obtenidos de las mediciones.
+ En el siguiente gráfico se superponen las curvas de respuesta en frecuencia
+ obtenidas mediante simulación y mediciones.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2daParte/Graficos/CurvasRatio.pdf
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las gráficas obtenidas coinciden casi en su totalidad, por lo que el comportamie
+nto real responde bien al simulado.
+\end_layout
+
+\begin_layout Standard
+Retomando el análisis de la ganancia, siendo el valor teórico obtenido de
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$A_{vs}[dB]=36.3[dB]$
+\end_layout
+
+\end_inset
+
+, puede establecerse un rango de validez de entre 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1KHz$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$2KHz$
+\end_layout
+
+\end_inset
+
+.
+ Partiendo del punto de trabajo, la señal alterna inyectada lo que hará
+ es que dicho punto (estático en continua) se desplace a lo largo de un
+ pequeño segmento sobre la recta de carga estática sobre el gráfico de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_{C}(V_{CE})$
+\end_layout
+
+\end_inset
+
+, cuyos extremos se ubican en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{CE}=V_{CC}=12V$
+\end_layout
+
+\end_inset
+
+ y en el límite de saturación (con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_{CE}=0.2V$
+\end_layout
+
+\end_inset
+
+) la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_{CLimite}=
+\backslash
+frac{V_{CC}}{R_C+R_E+
+\backslash
+frac{R_E}{HFE}}=684 
+\backslash
+mu A$
+\end_layout
+
+\end_inset
+
+.
+ Teniendo en cuenta que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_{CQ}=272.84 
+\backslash
+mu A$
+\end_layout
+
+\end_inset
+
+ para el amplificador en cuestión, el valor máximo de la amplitud de la
+ señal inyectada 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(V_s)$
+\end_layout
+
+\end_inset
+
+ será aquel que genere una 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{i_{c}}$
+\end_layout
+
+\end_inset
+
+ que, sumada al valor estático 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_{CQ}$
+\end_layout
+
+\end_inset
+
+ (por superposición) no desplace el punto 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q$
+\end_layout
+
+\end_inset
+
+ más allá de los límites indicados anteriormente, sino la señal de salida
+ se verá distorsionada.
+ En este caso, la 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+hat{i_{c}}$
+\end_layout
+
+\end_inset
+
+ máxima queda dada por el valor de la misma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_{CQ}$
+\end_layout
+
+\end_inset
+
+.
+ Teniendo esto en cuenta, desde el circuito incremental se obtiene:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$
+\backslash
+hat{i_c} =
+\backslash
+frac{V_{s}}{hie} 
+\backslash
+frac{hfe(R_{TH}//hie)}{[R_g+(R_{TH}//hie)]}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_{s}=
+\backslash
+frac{
+\backslash
+hat{i_c} 
+\backslash
+cdot hie[R_g+(R_{TH}//hie)]}{hfe(R_{TH}//hie)}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$V_{s}(Max)=25.22mV$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+En la siguiente gráfica se muestra una medición de la señal de entrada a
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$100mV$
+\end_layout
+
+\end_inset
+
+ de amplitud y de salida, a una frecuencia de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$2KHz$
+\end_layout
+
+\end_inset
+
+ (comprendida en el intervalo de validez mencionado anteriormente), donde
+ se produce la distorsión.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2daParte/DistorsionPorZonaNoLineal.png
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Medición de entrada y salida, donde CH1 - 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_s$
+\end_layout
+
+\end_inset
+
+, CH2 - 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_o$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al ser un amplificador inversor, el semiciclo positivo de entrada corresponde
+ al negativo de salida donde, al mover el punto 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q$
+\end_layout
+
+\end_inset
+
+ hacia la zona de saturación, la señal se distorsiona dado que el transistor
+ ya no opera linealmente, y el semiciclo negativo de entrada corresponde
+ al positivo de salida, donde se lleva el punto 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$Q$
+\end_layout
+
+\end_inset
+
+ hacia la zona de corte, produciendo la forma aplanada de la señal debido
+ a que el transistor no conduce.
 \end_layout
 
 \begin_layout Subsection
