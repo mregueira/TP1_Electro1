@@ -4949,7 +4949,7 @@ status open
 \begin_inset Graphics
 	filename 2daParte/DistorsionPorZonaNoLineal.png
 	display false
-	scale 50
+	scale 45
 
 \end_inset
 
@@ -5269,9 +5269,9 @@ status open
 
 \begin_layout Plain Layout
 
-$$R_{os}=6.02K
+$R_{os}=6.02K
 \backslash
-Omega$$
+Omega$
 \end_layout
 
 \end_inset
@@ -5323,6 +5323,403 @@ newpage
 
 \begin_layout Section
 Diodo Rectificador - Análisis en frecuencia
+\end_layout
+
+\begin_layout Standard
+En esta sección, se retoma el análisis del diodo rectificador 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1N4007$
+\end_layout
+
+\end_inset
+
+, pero en este caso se inyecta una señal alterna de amplitud 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1V$
+\end_layout
+
+\end_inset
+
+, para observar su respuesta en frecuencia.
+ El circuito utilizado es el que se muestra en la figura.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3raParte/Grafico/Circuito.png
+	display false
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Circuito con diodo rectificador en alterna
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se mide la tensión de entrada 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_i$
+\end_layout
+
+\end_inset
+
+ y la tensión sobre el diodo para distintas frecuencias, de forma tal de
+ comprobar como se modifica el funcionamiento a altas frecuencias.
+ En la siguiente gráfica se superponen la respuesta en frecuencia medida
+ y simulada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3raParte/Grafico/CurvaRatio.pdf
+	display false
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia - Módulo
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de la gráfica obtenida, se observa que a altas frecuencias toma
+ relevancia el efectos capacitivo de la juntura, llamada 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$C_j$
+\end_layout
+
+\end_inset
+
+.
+ Como se modela conectada en paralelo al diodo, el comportamiento termina
+ siendo similar al de un circuito 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$RC$
+\end_layout
+
+\end_inset
+
+ pasabajos (con el diodo polarizado en inversa).
+ Se puede observar que las gráficas están desfasadas: esto se debe al efecto
+ de las puntas del osciloscopio.
+ Al modelarlas como un capacitor en paralelo a un resistencia de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+approx 1M
+\backslash
+Omega$
+\end_layout
+
+\end_inset
+
+, la resistencia 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R=330K$
+\end_layout
+
+\end_inset
+
+ del circuito es de un orden cercano, formandose un divisor resistivo entre
+ dicha resistencia y la punta, provocando una atenuación ya desde las primeras
+ frecuencias.
+ Este error puede solucionarse utilizando un valor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R$
+\end_layout
+
+\end_inset
+
+ despreciable frente a la impedancia puesta por la punta del osciloscopio.
+ Para comprobar que el corrimiento es debido a lo planteado anteriormente,
+ se simuló nuevamente el circuito pero modelando la punta como se muestra
+ a continuación, conectada a la salida sobre el diodo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3raParte/Grafico/Punta.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Modelado de las puntas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Realizando el agregado, se compara la nueva curva simulada con la medida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3raParte/Grafico/CurvaRatioNew.pdf
+	display false
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia - Módulo (con punta)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde ahora ambas curvas se ajustan mucho mejor.
+ Esto último resulta también razonable en la fase obtenida, que es también
+ similar al de un circuito 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$RC$
+\end_layout
+
+\end_inset
+
+, dado que a altas frecuencias tiende al valor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$90^{
+\backslash
+circ}$
+\end_layout
+
+\end_inset
+
+, por el polo que inserta la capacidad de juntura.
+ Lo anterior puede observarse en la siguiete gráfica, comparando la fase
+ simulada y medida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3raParte/Grafico/CurvaFase.pdf
+	display false
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia - Fase
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Al igual que en el caso del módulo, la fase se ve afectada de igual manera
+ por la punta del osciloscopio.
+ Realizando el agregado de la punta a la simulación, se compara la nueva
+ curva de fase simulada con la medida.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 3raParte/Grafico/CurvaFaseNew.pdf
+	display false
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Respuesta en frecuencia - Fase (con punta)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Donde ahora ambas curvas se ajustan mucho mejor.
 \end_layout
 
 \end_body
