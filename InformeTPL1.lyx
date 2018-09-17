@@ -4209,7 +4209,6 @@ frac{R_E}{HFE})$$
 \end_layout
 
 \begin_layout Standard
-
 \begin_inset ERT
 status open
 
@@ -4224,7 +4223,6 @@ $$V_{CEQ}=7.3V>0.2V$$
 \end_layout
 
 \begin_layout Standard
-
 Por lo tanto, el circuito opera en modo activo directo.
 \end_layout
 
@@ -5035,8 +5033,276 @@ $Q$
 Impedancia de entrada
 \end_layout
 
+\begin_layout Standard
+Se procedió a medir la impedancia de entrada del amplificador 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_ia$
+\end_layout
+
+\end_inset
+
+ para distintas frecuencias (al igual que se hizo para la ganancia), comparando
+ en la siguiente gráfica con la curva simulada.
+ Para efectuar las mediciones, se colocó una resistencia similar a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_{ia}$
+\end_layout
+
+\end_inset
+
+ en serie al generador, midiendo las tensiones entre sus bornes para calcular
+ la corriente que circula 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$I_s$
+\end_layout
+
+\end_inset
+
+, de forma tal que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+frac{V_s}{I_s}-R_{serie} 
+\backslash
+approx R_{ia}$
+\end_layout
+
+\end_inset
+
+ (al alterar el circuito con dicha resistencia, puede haber cierto error
+ en la medición, sumado al efecto que producen las puntas del osciloscopio).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2daParte/Graficos/CurvasZin.pdf
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Impedancia de entrada
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir de las curvas obtenidas, comparando con el valor calculado de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_{ia}=6.53K
+\backslash
+Omega$
+\end_layout
+
+\end_inset
+
+, se observa que el obtenido mediante el análisis incremental resulta valido
+ en el intervalo de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1KHz$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$3KHz$
+\end_layout
+
+\end_inset
+
+, similar al intervalo obtenido para la ganancia de tensión del sistema.
+\end_layout
+
 \begin_layout Subsection
 Impedancia de salida
+\end_layout
+
+\begin_layout Standard
+Para la medición de la impedancia de salida del amplificador 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_{os}$
+\end_layout
+
+\end_inset
+
+, se procedió en forma similar que para la impedancia de entrada, pero en
+ este caso actuando sobre 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_L$
+\end_layout
+
+\end_inset
+
+: se mide primero la tensión 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$V_o$
+\end_layout
+
+\end_inset
+
+ con 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R_L$
+\end_layout
+
+\end_inset
+
+ y luego sin ella.
+ En la siguiente gráfica se muestra solo la curva medida (dado que no es
+ posible replicar el procedimiento en la simulación).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename 2daParte/Graficos/CurvaRoa.pdf
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Impedancia de salida
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Teniendo en cuenta el valor calculado 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$R_{os}=6.02K
+\backslash
+Omega$$
+\end_layout
+
+\end_inset
+
+, resulta bien aproximado por el modelo incremental en el mismo intervalo
+ de frecuencias que para los parámetros anteriores de ganancia e impedancia
+ de entrada (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1KHz$
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$2KHz$
+\end_layout
+
+\end_inset
+
+).
+ En altas frecuencias surge cierto error por el efecto producido al colocar
+ las puntas del osciloscopio en el circuito.
 \end_layout
 
 \begin_layout Standard
