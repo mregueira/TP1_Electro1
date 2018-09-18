@@ -5518,7 +5518,160 @@ $R$
 \end_inset
 
  despreciable frente a la impedancia puesta por la punta del osciloscopio.
- Para comprobar que el corrimiento es debido a lo planteado anteriormente,
+ Para una frecuencia no muy alta 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(1KHz)$
+\end_layout
+
+\end_inset
+
+ se obtuvo una ganancia de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$-2.7dB$
+\end_layout
+
+\end_inset
+
+; a partir de allí, restando 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$3dB$
+\end_layout
+
+\end_inset
+
+ se busca aproximadamente la frecuencia de corte, de forma tal de poder,
+ junto con la resistencia 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$R$
+\end_layout
+
+\end_inset
+
+ obtener aproximadamente la capacidad de juntura.
+ En este caso correspondería a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$-5.7dB$
+\end_layout
+
+\end_inset
+
+ de gananancia obtenidos a una frecuencia de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$4KHz$
+\end_layout
+
+\end_inset
+
+.
+ A partir de la ecuación para la frecuencia de corte de un circuito pasabajos
+ de primer orden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$f_C = 
+\backslash
+frac{1}{2 
+\backslash
+pi R C}$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Se despeja el valor de la capacidad total:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$$C= 
+\backslash
+frac{1}{2 
+\backslash
+pi R f_C} = 120pF$$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Restando la capacidad de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$100pF$
+\end_layout
+
+\end_inset
+
+ agregada por la punta, se obtiene que 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$C_j 
+\backslash
+approx 20pF$
+\end_layout
+
+\end_inset
+
+, que está en el orden del valor dado por la hoja de datos 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$(15pF)$
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para comprobar que el corrimiento es debido a lo planteado anteriormente,
  se simuló nuevamente el circuito pero modelando la punta como se muestra
  a continuación, conectada a la salida sobre el diodo.
 \end_layout
