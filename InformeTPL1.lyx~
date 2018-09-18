@@ -1423,9 +1423,10 @@ En este caso, el dispositivo a tratar es un diodo zener.
 \begin_layout Standard
 Brevemente, la ruptura zener (a diferencia de la ruptura de avalancha) se
  da cuando el campo eléctrico de la zona de deplexión aumenta al punto donde
- puede romper enlaces covalentes y producir pares electrón-hueco.
- Los electrones generados por este proceso son llevados por el campo eléctrico
- al lado 
+ puede romper enlaces covalentes lo que radica en la generación de electrones
+ libres y huecos.
+ Los electrones libres generados por este proceso son llevados por el campo
+ eléctrico al lado 
 \begin_inset ERT
 status open
 
@@ -1447,7 +1448,9 @@ $P$
 
 \end_inset
 
-.
+, esto es porque los electrones libres se ven atraídos por el polo positivo
+ de la fuente y los huecos por el polo negativo (ya que está polarizado
+ en inversa).
  Por lo tanto ambos portadores forman una corriente entre los terminales
  de la unión.
  Una vez que se inicia el efecto zener, se genera una gran cantidad de portadore
@@ -5420,7 +5423,7 @@ status open
 \begin_inset Graphics
 	filename 3raParte/Grafico/CurvaRatio.pdf
 	display false
-	scale 50
+	scale 45
 
 \end_inset
 
@@ -5577,7 +5580,7 @@ status open
 \begin_inset Graphics
 	filename 3raParte/Grafico/CurvaRatioNew.pdf
 	display false
-	scale 50
+	scale 45
 
 \end_inset
 
@@ -5648,7 +5651,7 @@ status open
 \begin_inset Graphics
 	filename 3raParte/Grafico/CurvaFase.pdf
 	display false
-	scale 50
+	scale 45
 
 \end_inset
 
@@ -5690,7 +5693,7 @@ status open
 \begin_inset Graphics
 	filename 3raParte/Grafico/CurvaFaseNew.pdf
 	display false
-	scale 50
+	scale 45
 
 \end_inset
 
