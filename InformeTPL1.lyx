@@ -994,7 +994,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_i1$
+$V_{i1}$
 \end_layout
 
 \end_inset
@@ -1005,7 +1005,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_i2$
+$V_{i2}$
 \end_layout
 
 \end_inset
@@ -1048,7 +1048,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_D1$
+$V_{D1}$
 \end_layout
 
 \end_inset
@@ -1067,7 +1067,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_D2$
+$V_{D2}$
 \end_layout
 
 \end_inset
@@ -1086,7 +1086,7 @@ status open
 
 \begin_layout Plain Layout
 
-$I_D1$
+$I_{D1}$
 \end_layout
 
 \end_inset
@@ -1105,7 +1105,7 @@ status open
 
 \begin_layout Plain Layout
 
-$I_D2$
+$I_{D2}$
 \end_layout
 
 \end_inset
@@ -1360,7 +1360,7 @@ Delta ID}{
 \backslash
 Delta VD}=
 \backslash
-frac{I_D2-I_D1}{V_D2-V_D1}=0.011[
+frac{I_{D2}-I_{D1}}{V_{D2}-V_{D1}}=0.011[
 \backslash
 frac{1}{
 \backslash
@@ -1388,7 +1388,7 @@ Delta ID}{
 \backslash
 Delta VD}=
 \backslash
-frac{I_D2-I_D1}{V_D2-V_D1}=0.015[
+frac{I_{D2}-I_{D1}}{V_{D2}-V_{D1}}=0.015[
 \backslash
 frac{1}{
 \backslash
@@ -1763,7 +1763,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_i1$
+$V_{i1}$
 \end_layout
 
 \end_inset
@@ -1774,7 +1774,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_i2$
+$V_{i2}$
 \end_layout
 
 \end_inset
@@ -1817,7 +1817,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_D1$
+$V_{D1}$
 \end_layout
 
 \end_inset
@@ -1836,7 +1836,7 @@ status open
 
 \begin_layout Plain Layout
 
-$V_D2$
+$V_{D2}$
 \end_layout
 
 \end_inset
@@ -1855,7 +1855,7 @@ status open
 
 \begin_layout Plain Layout
 
-$I_D1$
+$I_{D1}$
 \end_layout
 
 \end_inset
@@ -1874,7 +1874,7 @@ status open
 
 \begin_layout Plain Layout
 
-$I_D2$
+$I_{D2}$
 \end_layout
 
 \end_inset
@@ -2125,7 +2125,7 @@ Delta ID}{
 \backslash
 Delta VD}=
 \backslash
-frac{I_D2-I_D1}{V_D2-V_D1}=0.100[
+frac{I_{D2}-I_{D1}}{V_{D2}-V_{D1}}=0.100[
 \backslash
 frac{1}{
 \backslash
@@ -2153,7 +2153,7 @@ Delta ID}{
 \backslash
 Delta VD}=
 \backslash
-frac{I_D2-I_D1}{V_D2-V_D1}=0.083[
+frac{I_{D2}-I_{D1}}{V_{D2}-V_{D1}}=0.083[
 \backslash
 frac{1}{
 \backslash
@@ -4000,7 +4000,18 @@ $BC547B$
 
 \end_inset
 
- sugerido en la consigna.
+ sugerido en la consigna, sino del 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$BC547C$
+\end_layout
+
+\end_inset
+
+.
  La salida 
 \begin_inset ERT
 status open
